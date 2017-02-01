@@ -757,6 +757,12 @@
 #define trunc(x) floor((x)+0.5*(((x)<0)?1:0))
 #define isinf(x) (isInf(x,1) || isInf(x,-1))
 #define isnan(x) isNaN(x)
+#elif defined(__MINGW32__)
+#include <shlwapi.h>
+#define strcasestr StrStrI
+#define SHUT_RD 0
+#define SHUT_WR 1
+#define SHUT_RDWR 2
 #elif defined(_WIN32)
 #define _CRT_SECURE_NO_WARNINGS 1
 #define _CRT_NONSTDC_NO_DEPRECATE 1
